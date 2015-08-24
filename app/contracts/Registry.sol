@@ -38,4 +38,7 @@ contract Registry{
   function clearTimer(string name){
 
   }
+  function pay(uint amount, address reciever){
+    GasCoin()
+  }
 }

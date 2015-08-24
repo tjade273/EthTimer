@@ -35,12 +35,15 @@ contract Timer{
         if(block.number >= last+freq){
           call.call(sig);
           last = block.number;
-          coin.pay(gas,msg.sender);
+          owner.pay(gas,msg.sender);
         }
       }
     }
   }
-  function registerWorker() public {
-
+  function registerWorker(address worker,uint deposit) public {
+    if(msg.sender==owner){
+      workers[worker] = new Worker(worker,deposit,true,0)
+    }
   }
+  
 }
